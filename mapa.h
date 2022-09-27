@@ -1,3 +1,9 @@
+#define HEROI '@'
+#define FANTASMA 'F'
+#define VAZIO '.'
+#define PAREDE_VERTICAL '|'
+#define PAREDE_HORIZONTAL '-'
+
 struct mapa { // declarei uma estrutura de variáveis
 	// matriz de 5 x 10, linhas x colunas
 	// char mapa[5][10+1]; // o +1 serve para indicar o /0 que é o fim da matriz
@@ -19,4 +25,15 @@ void liberamapa(MAPA* m);
 void alocamapa(MAPA* m);
 void lemapa(MAPA* m);
 void imprimemapa(MAPA* m);
-void encontramapa(MAPA* m, POSICAO* p, char c);
+int encontramapa(MAPA* m, POSICAO* p, char c);
+
+int ehvalida(MAPA* m, int x, int y);
+int ehvazia(MAPA* m, int x, int y);
+
+void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
+void copiamapa(MAPA* destino, MAPA* origem);
+
+int podeandar(MAPA* m, char personagem, int x, int y);
+
+int ehparede(MAPA* m, int x, int y);
+int ehpersonagem(MAPA* m, char personagem, int x, int y);
